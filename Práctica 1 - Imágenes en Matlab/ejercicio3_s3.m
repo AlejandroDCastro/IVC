@@ -4,15 +4,14 @@
 %vistos en clase que más interesen para la aplicación.
 
 puntosylineas=imread('ivc_practica1_imagenes/puntosylineas.gif');
-SE1=strel('disk',6);
-circulo=imopen(puntosylineas,SE);
+se = strel('disk',6);
+circulo = imopen(img,se);
 
-SE2 = strel('disk',1);
-circuloDilatado=imdilate(circulo,SE2);
-lineas=puntosylineas-circuloDilatado;
+se2 = strel('disk',1);
+circuloDilatado=imdilate(circulo,se2);
+lineas=img-circuloDilatado;
 
-%Completa la imagen
-complementaria=imcomplement(puntosylineas);
+complementaria=imcomplement(img);
 
 linea1 = strel('line',100,0);
 elinea1=imclose(complementaria,linea1);
@@ -45,4 +44,8 @@ clinea7 = imcomplement(elinea7);
 
 
 imFinal=lineas+clinea1+clinea2+clinea3+clinea4+clinea5+clinea6+clinea7;
-figure, imshow(elinea1), figure, imshow(clinea1);
+figure, imshow(elinea1), figure, imshow(clinea1), 
+%imgFin=lineaCerrada+lineaCerrada2+lineas;
+
+%figure, imshow(img), figure, imshow(circulo), 
+%figure, imshow(lineas), figure, imshow(imgFin)
