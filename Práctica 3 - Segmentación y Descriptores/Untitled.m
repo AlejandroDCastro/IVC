@@ -1,7 +1,30 @@
 
 % Ejercicio 1
-img = imread('ivc_practica3_imagenes/bacteria.tif');
-imshow(bacteria);
+img = imread('ivc_practica3_imagenes/formas.tif');
+imshow(img);
+img = rgb2gray(img);
+bw = imbinarize(imcomplement(img), 0.01);
+imshow(imcomplement(img));
+imshow(ans);
+cc = bwconncomp(bw);
+la = labelmatrix(cc);
+imshow(imadjust(la));
+[numforma,imgd] = detectarForma2(img, 2);
+imshow(la);
+
+[numforma,imgd] = detectarForma2(img, 1);
+
+[numforma,imgd] = detectarForma(img, 1);
+numforma
+
+numforma =
+
+     6
+
+imshow(imgd);
+imshow(imgd);
+
+
 impixelinfo;
 %umbral fondo: 105
 %umbral bacteria: 97
